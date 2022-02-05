@@ -212,9 +212,9 @@ fi
 pip install google-assistant-grpc==0.3.0
 pip install google-assistant-sdk==0.6.0
 pip install google-assistant-sdk[samples]==0.6.0
-#google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype \
-#          --scope https://www.googleapis.com/auth/gcm \
-#          --save --headless --client-secrets $credname
+google-oauthlib-tool --scope https://www.googleapis.com/auth/assistant-sdk-prototype \
+          --scope https://www.googleapis.com/auth/gcm \
+          --save --headless --client-secrets $credname
 
 echo ""
 echo ""
