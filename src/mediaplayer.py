@@ -133,7 +133,8 @@ class vlcplayer():
         media=self.libvlc_Instance.media_new(mrl)
         self.libvlc_player.set_media(media)
         self.libvlc_player.play()
-        publish_uri_wav(self.mqtt_client, 'uri', mrl)
+        if configuration['MQTT_AUDIO']['MQTT_Control']=='Enabled':
+            publish_uri_wav(self.mqtt_client, 'uri', mrl)
         if os.path.isfile("{}/.mediavolume.json".format(USER_PATH)):
             with open('{}/.mediavolume.json'.format(USER_PATH), 'r') as vol:
                 setvollevel = json.load(vol)

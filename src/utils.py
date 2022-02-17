@@ -32,19 +32,8 @@ def publish_uri_wav(client, type, payload):
         infot = client.publish(topic, payload)
         infot.wait_for_publish()
 
-def on_connect_publish(rc):
-    print("Connected with result code "+str(rc))
-
-def on_message_publish(obj, mid):
-    print("mid: " + str(mid))
-
 def mqtt_create_client():
     client = mqtt.Client()
-    client.on_connect = on_connect_publish
-    client.on_publish = on_message_publish
     client.username_pw_set(configuration['MQTT_AUDIO']['UNAME'], configuration['MQTT_AUDIO']['PSWRD'])
     client.connect(configuration['MQTT_AUDIO']['IP'], 1883, 60)
     return client
-
-#client = mqtt_create_client()
-#publish_uri_wav(client, 'uri', 'test')
