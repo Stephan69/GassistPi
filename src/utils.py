@@ -24,15 +24,13 @@ with open('{}/src/config.yaml'.format(ROOT_PATH),'r', encoding='utf8') as conf:
 
 def publish_uri_wav(client, type, payload):
     topic = None
-    if type =='string':
+    if type =='uri':
         topic = configuration['MQTT_AUDIO']['TOPIC_URI']
     elif type =='wav':
         topic = configuration['MQTT_AUDIO']['TOPIC_WAV']
     if topic is not None:
         infot = client.publish(topic, payload)
         infot.wait_for_publish()
-        client.disconnect()
-
 
 def on_connect_publish(rc):
     print("Connected with result code "+str(rc))
@@ -40,7 +38,7 @@ def on_connect_publish(rc):
 def on_message_publish(obj, mid):
     print("mid: " + str(mid))
 
-def mqtt_start_publish():
+def mqtt_create_client():
     client = mqtt.Client()
     client.on_connect = on_connect_publish
     client.on_publish = on_message_publish
@@ -48,5 +46,5 @@ def mqtt_start_publish():
     client.connect(configuration['MQTT_AUDIO']['IP'], 1883, 60)
     return client
 
-client = mqtt_start_publish()
-publish_uri_wav(client, 'string', 'test')
+#client = mqtt_create_client()
+#publish_uri_wav(client, 'uri', 'test')

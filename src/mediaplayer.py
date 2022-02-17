@@ -9,6 +9,8 @@ import os.path
 from youtube_search_engine import youtube_search
 from youtube_search_engine import youtube_stream_link
 import yaml
+from utils import mqtt_create_client
+from utils import publish_uri_wav
 
 ROOT_PATH = os.path.realpath(os.path.join(__file__, '..', '..'))
 USER_PATH = os.path.realpath(os.path.join(__file__, '..', '..','..'))
@@ -34,6 +36,7 @@ with open('{}/src/config.yaml'.format(ROOT_PATH),'r') as conf:
 class vlcplayer():
 
     def __init__(self):
+        self.mqtt_client= mqtt_create_client()
         self.libvlc_Instance=vlc.Instance('--verbose 0')
         self.libvlc_player = self.libvlc_Instance.media_player_new()
         # self.libvlc_list_player = self.libvlc_Instance.media_list_player_new()
@@ -130,6 +133,7 @@ class vlcplayer():
         media=self.libvlc_Instance.media_new(mrl)
         self.libvlc_player.set_media(media)
         self.libvlc_player.play()
+        publish_uri_wav(self.mqtt_client, 'uri', mrl)
         if os.path.isfile("{}/.mediavolume.json".format(USER_PATH)):
             with open('{}/.mediavolume.json'.format(USER_PATH), 'r') as vol:
                 setvollevel = json.load(vol)
