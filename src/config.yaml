@@ -190,6 +190,15 @@ MQTT:
   PSWRD: 'Enter your MQTT PASSWORD here'
   TOPIC: 'ENTER your MQTT TOPIC here'
 
+#MQTT credentials / config for audio to another pi
+MQTT_AUDIO:
+  MQTT_Control: 'Disabled'
+  IP: 'Enter your MQTT IP ADDRESS here'
+  UNAME: 'Enter your MQTT USERNAME here'
+  PSWRD: 'Enter your MQTT PASSWORD here'
+  TOPIC_URI: 'ENTER your MQTT TOPIC here'
+  TOPIC_WAV: 'ENTER your MQTT TOPIC here'
+
 #Text to speak notifications (replay after me workaround for mqtt).
 #You can change command word to something else if your command is mixed with native functions
 Notify_TTS:
