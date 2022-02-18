@@ -108,7 +108,7 @@ Pushbullet:
   Pushbullet_Control: 'Enabled'
 
 #API Key for YouTube and Kickstarter Search Engine
-Google_cloud_api_key: "ENTER-YOUR-GOOGLE-CLOUD-API-KEY-HERE"
+Google_cloud_api_key: "AIzaSyA11dHzstBFfZHdKXkiftd9e_qq7rUcDsE"
 
 #GPIOS used in the project. Feel free to change in case.
 Gpios:
@@ -168,16 +168,16 @@ Kodi:
 
 #Change you language. Default is english
 Language:
-  Choice: 'en-US'
+  Choice: 'nl-NL'
   Language options:
-     - 'en-US' #'English'US
-     - 'en-GB' #English GB
-     - 'fr-FR' # 'French'
-     - 'de-DE' # 'German'
-     - 'it-IT' # 'Italian'
-     - 'es-ES' # 'Spanish'
-     - 'nl-NL' # 'Dutch'
-     - 'sv-SE' # 'Swedish'
+    - 'en-US' #'English'US
+    - 'en-GB' #English GB
+    - 'fr-FR' # 'French'
+    - 'de-DE' # 'German'
+    - 'it-IT' # 'Italian'
+    - 'es-ES' # 'Spanish'
+    - 'nl-NL' # 'Dutch'
+    - 'sv-SE' # 'Swedish'
 
 # Enter your Magic Mirror IP
 Mmmip: 'ENTER_YOUR_MAGIC_MIRROR_IP'
@@ -185,19 +185,19 @@ Mmmip: 'ENTER_YOUR_MAGIC_MIRROR_IP'
 #MQTT credentials
 MQTT:
   MQTT_Control: 'Disabled'
-  IP: 'Enter your MQTT IP ADDRESS here'
-  UNAME: 'Enter your MQTT USERNAME here'
-  PSWRD: 'Enter your MQTT PASSWORD here'
-  TOPIC: 'ENTER your MQTT TOPIC here'
+  IP: '127.0.0.1'
+  UNAME: 'pi'
+  PSWRD: 'sebastiaan'
+  TOPIC: '/mqtt/google-assistant-requests'
 
 #MQTT credentials / config for audio to another pi
 MQTT_AUDIO:
-  MQTT_Control: 'Disabled'
-  IP: 'Enter your MQTT IP ADDRESS here'
-  UNAME: 'Enter your MQTT USERNAME here'
-  PSWRD: 'Enter your MQTT PASSWORD here'
-  TOPIC_URI: 'ENTER your MQTT TOPIC here'
-  TOPIC_WAV: 'ENTER your MQTT TOPIC here'
+  MQTT_Control: 'Enabled'
+  IP: '127.0.0.1'
+  UNAME: 'pi'
+  PSWRD: 'sebastiaan'
+  TOPIC_URI: '/mqtt/google-assistant-uri'
+  TOPIC_WAV: '/mqtt/google-assistant-wav'
 
 #Text to speak notifications (replay after me workaround for mqtt).
 #You can change command word to something else if your command is mixed with native functions
@@ -260,9 +260,9 @@ Speechtotext:
 #Spotify credentials. Register for a spotify developer and get the credentials.
 Spotify:
   Spotify_Control: 'Enabled'
-  client_id: 'ENTER YOUR SPOTIFY CLIENT ID HERE'
-  client_secret: 'ENTER YOUR SPOTIFY CLIENT SECRET HERE'
-  username: 'ENTER YOUR SPOTIFY USERNAME HERE'
+  client_id: '6e015c84d4b143eb9be08b78983b3a37'
+  client_secret: 'be5c18c8fc564520ae9d93c787005e4d'
+  username: '11173574741'
 
 #Enter your Tasmota Device details below
 Tasmota_devicelist:
@@ -282,8 +282,8 @@ TextToSpeech:
   # Set the choice to:
   # 1. "gTTS" for quotaless text to speech conversion
   # 2. "Google Cloud" for Google Cloud text to sppech conversion. Free limit 4 Million Characters/month
-  Choice: 'gTTS'
-  Google_Cloud_TTS_Credentials_Path: "ENTER THE PATH TO YOUR TTS CREDENTIALS FILE HERE"
+  Choice: 'Google Cloud'
+  Google_Cloud_TTS_Credentials_Path: "/home/pi/ko97-sebastiaan-95deac668712.json"
   #Voice for the "SAY" function or text to speech. Set it to 'Female' or 'Male' depending on your preference.
   #Note: This does not change Google's voice. this is only for the speech generated within custom actions.
   Voice_Gender: 'Female'

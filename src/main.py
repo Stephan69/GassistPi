@@ -557,7 +557,7 @@ class Myassistant():
         client.on_connect = self.on_connect
         client.on_message = self.on_message
         client.username_pw_set(configuration['MQTT']['UNAME'], configuration['MQTT']['PSWRD'])
-        client.connect(configuration['MQTT']['IP'], 1883, 60)
+        client.connect(configuration['MQTT']['IP'], 1884, 60)
         client.loop_forever()
 
     def adafruit_connected(self,client):

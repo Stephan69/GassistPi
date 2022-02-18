@@ -35,5 +35,6 @@ def publish_uri_wav(client, type, payload):
 def mqtt_create_client():
     client = mqtt.Client()
     client.username_pw_set(configuration['MQTT_AUDIO']['UNAME'], configuration['MQTT_AUDIO']['PSWRD'])
-    client.connect(configuration['MQTT_AUDIO']['IP'], 1883, 60)
+    client.connect(configuration['MQTT_AUDIO']['IP'], 1883, 65535)
+    client.loop_start()
     return client
