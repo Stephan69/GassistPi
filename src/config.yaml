@@ -193,9 +193,7 @@ MQTT:
 #MQTT credentials / config for audio to another pi
 MQTT_AUDIO:
   MQTT_Control: 'Enabled'
-  IP: '127.0.0.1'
-  UNAME: 'pi'
-  PSWRD: 'sebastiaan'
+  IP: '192.168.178.209'
   TOPIC_URI: '/mqtt/google-assistant-uri'
   TOPIC_WAV: '/mqtt/google-assistant-wav'
 
